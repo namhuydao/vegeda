@@ -8,18 +8,11 @@ bodyOverlay.addEventListener('click', function () {
     wrapper.classList.remove('addTop')
     wrapper.classList.remove('addRight')
 })
-window.onscroll = function () { scrollFunction() };
 
-function scrollFunction() {
-    let navmenu = document.querySelector('.navmenu');
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100 ||
-        window.pageYOffset > 100) {
-        navmenu.classList.add("sticky");
-    } else {
-        navmenu.classList.remove("sticky");
-    }
-}
-
+let navmenu = document.querySelector('.navmenu');
+window.addEventListener('scroll', () => {
+    navmenu.classList.toggle('sticky', window.scrollY > 0)
+  })
 let menubar = document.querySelector('.burger__menu');
 let menuclose = document.querySelector('.menu__close');
 let navmenulist = document.querySelector('.navmenu__list-mobile');
